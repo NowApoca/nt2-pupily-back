@@ -11,7 +11,17 @@ export default class MascotasDao {
         return this.mascotas
     }
 
-    save(usuario) {
-        this.mascotas.push(usuario)
+    save(mascota) {
+        this.mascotas.push(mascota)
+    }
+
+    getMascotasDeUsuarioPorEmail(email){
+        const mascotasDelUsuario = [];
+        this.mascotas.forEach(mascota => {
+            if(mascota.ownerEmail === email){
+                mascotasDelUsuario.push(mascota)
+            }
+        })
+        return mascotasDelUsuario;
     }
 }

@@ -4,6 +4,9 @@ const DAY = 24*60*60*1000;
 
 export default class TokenHandler {
     constructor(jwtSecret, {expirationTime = DAY} = {}) {
+      if(typeof TokenHandler.instance === "object"){
+        return TokenHandler.instance;
+      }
         this.jwtSecret = jwtSecret;
         this.expirationTime = expirationTime;
     }

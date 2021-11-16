@@ -1,5 +1,5 @@
 import {v4 as uuid} from "uuid"
 
-export default function generarId(){
+export function generarId(){
     return uuid()
 }

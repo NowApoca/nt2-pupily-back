@@ -1,7 +1,10 @@
-export const emailConfig = {
+export default {
     mailer: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASSWORD,
-        host: process.env.MAIL_HOST,
-    }
+        user: 'noresponderaifa@gmail.com',
+        pass: 'displaceUprightarmentitable',
+        host: 'gmail',
+    },
+    SECRET: 'secret example',
+    SALT_ROUNDS: 10,
+    PORT: 8081,
 }

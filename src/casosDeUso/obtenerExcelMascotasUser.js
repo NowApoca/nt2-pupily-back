@@ -1,14 +1,21 @@
-import generarId from "../modulos/generarId/generarId"
-import generateExcel from '../modulos/excel/excel'
+import {generarId} from "../modulos/generarId/generarId.js"
+import generateExcel from '../modulos/excel/excel.js'
+import { getMascotasDao } from "../daos/mascotas/index.js"
+import { getUsuariosDao } from "../daos/usuarios/index.js"
 
 const mascotaDao = getMascotasDao()
+const usuarioDao = getUsuariosDao()
 
-export async function obtenerExcelMascotas(userId) {
-    const mascotas = mascotaDao.getMascotasDeUsuarioPorId(userId);
+export async function obtenerExcelMascotas(userEmail, cb) {
+    const usuario = usuarioDao.findByEmail(userEmail)
+    if(!usuario){
+        throw new Error(`EL USUARIO ${userEmail} NO EXISTE`)
+    }
+    const mascotas = mascotaDao.getMascotasDeUsuarioPorEmail(userEmail);
     const headers = ['Nombre', 'Id'];
     const fileName = generarId();
-    const dataMascotas = mascotas.map(mascota => Object.values(mascota));
-    await generateExcel(headers, dataMascotas, {fileName})
+    const dataMascotas = mascotas.map(mascota => [mascota.nombre, mascota.id]);
+    await generateExcel(headers, dataMascotas, {outputFile: fileName, cb})
 
-    return { fileName }
+    return { fileName: fileName + '.xlsx' }
 }

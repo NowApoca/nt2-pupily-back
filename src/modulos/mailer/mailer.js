@@ -2,6 +2,10 @@ import nodemailer from "nodemailer"
 
 export default class Mailer {
   constructor (user, password, host) {
+    if(typeof Mailer.instance === "object"){
+      return Mailer.instance;
+    }
+
     this.user = user;
     this.password = password;
     this.host = host;

@@ -1,0 +1,5 @@
+export PORT=8081;
+export MAIL_USER=mail;
+export MAIL_PASSWORD=pass;
+export MAIL_HOST=gmail;
+export SECRET=secret;

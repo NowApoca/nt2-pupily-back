@@ -1,16 +1,19 @@
-import { generarId } from '../modulos/generarId/generarId'
-import { getUsuariosDao } from "../daos/usuarios/index"
-import { generateQr } from "../modulos/qr/qr"
+import { getUsuariosDao } from "../daos/usuarios/index.js"
+import ModuloQR from "../modulos/qr/qr.js"
 
 const usuarioDao = getUsuariosDao()
+const generadorDeQrs = new ModuloQR()
 
-export async function generarQrDeUsuario(userId) {
-    const usuario = usuarioDao.findById(userId);
-    if(!usuario){
-        throw new Error(`El usuario con id ${userId} no existe`)
+export async function generarQrDeUsuario(usuario) {
+    const usuarioFromStore = usuarioDao.findByEmail(usuario.email);
+    if(!usuarioFromStore){
+        throw new Error(`El usuario con email ${usuario.email} no existe`)
     }
 
-    const qrData = generateQr(usuario.getData());
+    const qrData = await generadorDeQrs.generarCodigoQR(
+        usuarioFromStore.getData().toString(),
+        "string"
+    );
 
     return { qrData }
 }

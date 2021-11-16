@@ -1,3 +1,5 @@
+import Usuario from "../../modelos/Usuario.js";
+
 export default class UsuariosDao {
     constructor() {
         this.usuarios = []
@@ -13,5 +15,15 @@ export default class UsuariosDao {
 
     save(usuario) {
         this.usuarios.push(usuario)
+    }
+
+    findByEmail(email){
+        let usuario = null;
+        this.usuarios.forEach(usuarioEnDb => {
+            if(usuarioEnDb.email === email){
+                usuario = usuarioEnDb;
+            }
+        })
+        return usuario;
     }
 }

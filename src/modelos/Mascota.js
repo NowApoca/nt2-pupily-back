@@ -1,28 +1,28 @@
 export default class Mascota {
-    constructor({ id, nombre, owner }) {
+    constructor({ id, nombre, ownerEmail }) {
         this.setId(id)
         this.setNombre(nombre)
-        this.setOwner(owner)
+        this.setOwner(ownerEmail)
     }
 
     setId(id) {
         if (!id) {
-            throw new Error('INVALID_ARGS: falta el id')
+            throw new Error('Error en los argumentos: falta el id')
         }
         this.id = id
     }
 
     setNombre(nombre) {
         if (!nombre) {
-            throw new Error('INVALID_ARGS: falta el nombre')
+            throw new Error('Error en los argumentos: falta el nombre')
         }
         this.nombre = nombre
     }
 
-    setEmail(owner) {
-        if (!owner) {
-            throw new Error('INVALID_ARGS: falta el owner')
+    setOwner(ownerEmail) {
+        if (!ownerEmail) {
+            throw new Error('Error en los argumentos: falta el ownerEmail')
         }
-        this.owner = owner
+        this.ownerEmail = ownerEmail
     }
 }
