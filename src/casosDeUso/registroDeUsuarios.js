@@ -1,8 +1,8 @@
-import { generarId } from '../modulos/generarId/generarId'
-import Mailer from '../modulos/mailer/mailer';
-import Usuario from '../modelos/Usuario';
-import config from "../config"
-import {getUsuariosDao} from "../daos/usuarios/index"
+import { generarId } from '../modulos/generarId/generarId.js'
+import Mailer from '../modulos/mailer/mailer.js';
+import Usuario from '../modelos/Usuario.js';
+import config from "../config.js"
+import {getUsuariosDao} from "../daos/usuarios/index.js"
 
 const usuarioDao = getUsuariosDao()
 const enviadorDeMails = new Mailer(

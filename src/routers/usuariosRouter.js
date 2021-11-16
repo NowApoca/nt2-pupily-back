@@ -1,9 +1,10 @@
 import { Router } from 'express'
 import { registrarUsuario } from '../casosDeUso/registroDeUsuarios.js'
+import { getAuth } from "./middleware.js"
 
 const usuariosRouter = Router()
 
-usuariosRouter.post('/', getFile, async (req, res) => {
+usuariosRouter.post('/',  async (req, res) => {
     try {
         const usuario = await registrarUsuario({ ...req.body })
         res.json(usuario)
@@ -12,7 +13,7 @@ usuariosRouter.post('/', getFile, async (req, res) => {
     }
 })
 
-usuariosRouter.post('/login', getLogParams, async (req, res) => {
+usuariosRouter.post('/login', async (req, res) => {
     
 })
 

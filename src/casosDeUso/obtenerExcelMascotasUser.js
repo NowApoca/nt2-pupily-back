@@ -1,5 +1,5 @@
-import generarId from "../modulos/generarId/generarId"
-import generateExcel from '../modulos/excel/excel'
+import generarId from "../modulos/generarId/generarId.js"
+import generateExcel from '../modulos/excel/excel.js'
 
 const mascotaDao = getMascotasDao()
 

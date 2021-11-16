@@ -1,9 +1,8 @@
 import { getUsuariosDao } from '../daos/usuarios/index.js';
-import Usuario from '../modelos/Usuario.js'
 import { getUsuariosDao } from '../daos/usuarios/index.js';
-import { generarId } from '../modulos/generarId/generarId'
-import TokenHandler from '../modulos/session/session';
-import config from "../config"
+import { generarId } from '../modulos/generarId/generarId.js'
+import TokenHandler from '../modulos/session/session.js';
+import config from "../config.js"
 
 const usuarioDao = getUsuariosDao()
 const sessionDao = getSessionDao()

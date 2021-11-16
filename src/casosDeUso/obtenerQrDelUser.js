@@ -1,6 +1,5 @@
-import { generarId } from '../modulos/generarId/generarId'
-import { getUsuariosDao } from "../daos/usuarios/index"
-import { generateQr } from "../modulos/qr/qr"
+import { getUsuariosDao } from "../daos/usuarios/index.js"
+import { generateQr } from "../modulos/qr/qr.js"
 
 const usuarioDao = getUsuariosDao()
 

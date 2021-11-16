@@ -1,6 +1,6 @@
-import { generarId } from '../modulos/generarId/generarId'
-import Mascota from '../modelos/Mascota';
-import { getMascotasDao } from "../daos/mascotas/index"
+import { generarId } from '../modulos/generarId/generarId.js'
+import Mascota from '../modelos/Mascota.js';
+import { getMascotasDao } from "../daos/mascotas/index.js"
 
 const mascotaDao = getMascotasDao()
 

@@ -1,6 +1,6 @@
 import express from 'express'
-import { usuariosRouter } from './routers/usuariosRouter.js'
-import { mascotasRouter } from './routers/mascotasRouter.js'
+import { usuariosRouter } from './src/routers/usuariosRouter.js'
+import { mascotasRouter } from './src/routers/mascotasRouter.js'
 
 const app = express()
 

@@ -1,4 +1,4 @@
-export const emailConfig = {
+export default {
     mailer: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASSWORD,
