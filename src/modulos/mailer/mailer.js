@@ -26,6 +26,7 @@ export default class Mailer {
       text: content,
       attachments,
     };
+    console.log(mailOptions, this.host)
     return this.mailerService.sendMail(mailOptions);
   }
 }

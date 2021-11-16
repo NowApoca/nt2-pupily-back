@@ -11,7 +11,7 @@ export default class MascotasDao {
         return this.mascotas
     }
 
-    save(usuario) {
-        this.mascotas.push(usuario)
+    save(mascota) {
+        this.mascotas.push(mascota)
     }
 }
