@@ -8,28 +8,28 @@ export default class Usuario {
 
     setId(id) {
         if (!id) {
-            throw new Error('INVALID_ARGS: falta el id')
+            throw new Error('Error en los argumentos: falta el id')
         }
         this.id = id
     }
 
     setNombre(nombre) {
         if (!nombre) {
-            throw new Error('INVALID_ARGS: falta el nombre')
+            throw new Error('Error en los argumentos: falta el nombre')
         }
         this.nombre = nombre
     }
 
     setEmail(email) {
         if (!email) {
-            throw new Error('INVALID_ARGS: falta el email')
+            throw new Error('Error en los argumentos: falta el email')
         }
         this.email = email
     }
 
     setPassword(password) {
         if (!password) {
-            throw new Error('INVALID_ARGS: falta el password')
+            throw new Error('Error en los argumentos: falta el password')
         }
         this.password = password
     }

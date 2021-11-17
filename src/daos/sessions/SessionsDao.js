@@ -1,17 +1,17 @@
-export default class UsuariosDao {
+export default class SessionsDao {
     constructor() {
-        this.sessions = []
-    }
-
-    findById(id) {
-        return this.sessions.find(u => u.id == id)
+        this.sessions = {};
     }
 
     findAll() {
         return this.sessions
     }
 
-    save(session) {
-        this.sessions.push(session)
+    save(token) {
+        this.sessions[token] = true;
+    }
+
+    findToken(token){
+        return this.sessions[token];
     }
 }
