@@ -1,8 +1,9 @@
 export default {
     mailer: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASSWORD,
-        host: process.env.MAIL_HOST,
+        user: "iaka",
+        pass: "123456",
+        host: "gmail",
     },
-    SECRET: process.env.SECRET,
+    SECRET: "secretosecreto",
+    port: 8081
 }
