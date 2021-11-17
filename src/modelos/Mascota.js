@@ -1,8 +1,8 @@
 export default class Mascota {
-    constructor({ id, nombre, owner }) {
+    constructor({ id, nombre, ownerEmail }) {
         this.setId(id)
         this.setNombre(nombre)
-        this.setOwner(owner)
+        this.setOwner(ownerEmail)
     }
 
     setId(id) {
@@ -19,10 +19,10 @@ export default class Mascota {
         this.nombre = nombre
     }
 
-    setEmail(owner) {
-        if (!owner) {
-            throw new Error('INVALID_ARGS: falta el owner')
+    setOwner(ownerEmail) {
+        if (!ownerEmail) {
+            throw new Error('INVALID_ARGS: falta el ownerEmail')
         }
-        this.owner = owner
+        this.ownerEmail = ownerEmail
     }
 }

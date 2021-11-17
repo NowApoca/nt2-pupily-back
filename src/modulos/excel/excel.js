@@ -2,7 +2,7 @@ import excel from 'excel4node';
 
 const format = '.xlsx';
 
-export default function generateExcel(headers, data, {outputFile = 'output', sheetName = 'Sheet'} = {
+export default function generateExcel(headers, data, {cb, outputFile = 'output', sheetName = 'Sheet'} = {
 
 }){
     const workbook = new excel.Workbook();
@@ -35,5 +35,5 @@ export default function generateExcel(headers, data, {outputFile = 'output', she
       })
     })
   
-    return workbook.write(`${outputFile}${format}`)
+    return workbook.write(`${outputFile}${format}`, cb)
   }

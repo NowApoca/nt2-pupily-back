@@ -1,7 +1,9 @@
 import { Router } from 'express'
 import { registrarUsuario } from '../casosDeUso/registroDeUsuarios.js'
+import { obtenerExcelMascotas } from '../casosDeUso/obtenerExcelMascotasUser.js'
 import { loginUsuario } from '../casosDeUso/authDeUsuarios.js'
-import { getAuth } from "./middleware.js"
+import { getAuth, getUserEmail } from "./middleware.js"
+import fs from "fs"
 
 const usuariosRouter = Router()
 
@@ -19,7 +21,6 @@ usuariosRouter.post('/login', async (req, res) => {
         const token = await loginUsuario({ ...req.body })
         res.json(token)
     } catch (error) {
-        console.log(error, 'ERROR EN LOGIN')
         res.json({ error: error.message })
     }
 })
@@ -28,8 +29,18 @@ usuariosRouter.get('/data/qr', getAuth, async (req, res) => {
     
 })
 
-usuariosRouter.get('/mascotas', getAuth, async (req, res) => {
-    
+usuariosRouter.get('/mascotas/:userEmail', getUserEmail, async (req, res) => {
+    try {
+        const { fileName } = await obtenerExcelMascotas(res.locals.userEmail, () => {
+            res.download(fileName, () => {
+                fs.unlink(fileName, (err) => {
+                    console.log(`ERROR DELETING FILE: ${err}`)
+                })
+            })
+        })
+    } catch (error) {
+        res.json({ error: error.message })
+    }
 })
 
 export { usuariosRouter }

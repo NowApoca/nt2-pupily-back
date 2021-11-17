@@ -9,5 +9,5 @@ export async function registrarMascota(datosMascota) {
     const mascota = new Mascota({ ...datosMascota, id })
     mascotaDao.save(mascota)
 
-    return { mascota, token }
+    return { mascota }
 }
