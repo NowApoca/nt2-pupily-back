@@ -10,6 +10,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/usuarios', usuariosRouter)
 app.use('/api/mascotas', mascotasRouter)
 
+app.use((e, req, res, next) => {
+    console.log('LOG ERROR HANDLER', e)
+    res.json({ error: e.message })
+  });
+
+
 app.listen(process.env.PORT, () => {
     console.log(`SERVIDOR CORRIENDO EN ${process.env.PORT}!`)
 })

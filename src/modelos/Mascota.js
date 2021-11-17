@@ -7,21 +7,21 @@ export default class Mascota {
 
     setId(id) {
         if (!id) {
-            throw new Error('INVALID_ARGS: falta el id')
+            throw new Error('Error en los argumentos: falta el id')
         }
         this.id = id
     }
 
     setNombre(nombre) {
         if (!nombre) {
-            throw new Error('INVALID_ARGS: falta el nombre')
+            throw new Error('Error en los argumentos: falta el nombre')
         }
         this.nombre = nombre
     }
 
     setOwner(ownerEmail) {
         if (!ownerEmail) {
-            throw new Error('INVALID_ARGS: falta el ownerEmail')
+            throw new Error('Error en los argumentos: falta el ownerEmail')
         }
         this.ownerEmail = ownerEmail
     }
