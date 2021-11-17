@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { registrarUsuario } from '../casosDeUso/registroDeUsuarios.js'
 import { obtenerExcelMascotas } from '../casosDeUso/obtenerExcelMascotasUser.js'
+import { generarQrDeUsuario } from '../casosDeUso/obtenerQrDelUser.js'
 import { loginUsuario } from '../casosDeUso/authDeUsuarios.js'
 import { getAuth, getUserEmail } from "./middleware.js"
 import fs from "fs"
@@ -26,7 +27,12 @@ usuariosRouter.post('/login', async (req, res) => {
 })
 
 usuariosRouter.get('/data/qr', getAuth, async (req, res) => {
-    
+    try {
+        const qrData = await generarQrDeUsuario(res.locals.operador)
+        res.json(qrData)
+    } catch (error) {
+        res.json({ error: error.message })
+    }
 })
 
 usuariosRouter.get('/mascotas/:userEmail', getUserEmail, async (req, res) => {
